@@ -1,0 +1,39 @@
+apiVersion: "spec.keptn.sh/0.2.3"
+kind: "Shipyard"
+metadata:
+  name: "shipyard-sockshop"
+spec:
+  stages:
+    - name: "dev"
+      sequences:
+        - name: "delivery"
+          tasks:
+            - name: "deployment"
+              properties:
+                deploymentstrategy: "user_managed"
+      
+    - name: "qa"
+      sequences:
+        - name: "delivery"
+          triggeredOn:
+            - event: "dev.delivery.finished"
+          tasks:
+            - name: "deployment"
+              properties:
+                deploymentstrategy: "user_managed"
+            - name: "test"
+            - name: "evaluation"
+    
+    - name: "production"
+      sequences:
+        - name: "delivery"
+          triggeredOn:
+            - event: "qa.delivery.finished"
+          tasks:
+            - name: "approval"
+              propereties:
+                pass: "automatic"
+                warning: "manual"
+            - name: "deployment"
+              properties:
+                deploymentstrategy: "user_managed"
