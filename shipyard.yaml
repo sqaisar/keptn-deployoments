@@ -11,6 +11,8 @@ spec:
             - name: "deployment"
               properties:
                 deploymentstrategy: "user_managed"
+                deploymentURIsLocal:
+                  - "http://helloservice.sample-project-dev:80"
       
     - name: "qa"
       sequences:
@@ -24,6 +26,8 @@ spec:
             - name: "test"
               properties:
                 teststrategy: "performance"
+                deploymentURIsLocal:
+                  - "http://helloservice.sample-project-qa:80"
             - name: "evaluation"
     
     - name: "production"
