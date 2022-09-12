@@ -12,7 +12,7 @@ spec:
               properties:
                 deploymentstrategy: "user_managed"
                 deploymentURIsLocal:
-                  - "http://helloservice.sample-project-dev:80"
+                  - "http://helloservice.sample-project-qa:80"
       
     - name: "qa"
       sequences:
