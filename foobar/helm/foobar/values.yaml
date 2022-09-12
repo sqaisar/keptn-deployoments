@@ -1,2 +1,3 @@
+deploymentURIsLocal: http://helloservice.sample-project-qa:80
 image: ghcr.io/podtato-head/podtatoserver:v0.1.1
 replicaCount: 1
